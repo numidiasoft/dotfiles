@@ -1,0 +1,57 @@
+" dulanov's Vim Config
+
+set nocompatible
+
+set expandtab
+set autoindent
+set smartindent
+set tabstop=4
+set shiftwidth=4
+
+filetype on
+filetype plugin on
+filetype indent on
+
+if !exists("syntax_on")
+    syntax on
+endif
+
+set nowrap
+set backspace=indent,eol,start
+
+set showmatch
+
+set vb t_vb=
+
+set ruler
+set showcmd
+set ttyfast
+set wildmenu
+set lazyredraw
+
+set backup
+set backup=$HOME/.vim/backup
+set directory=$HOME/.vim/tmp
+
+set nohls
+set incsearch
+
+set virtualedit=all
+
+set background=dark
+colorscheme ir_black
+
+if has("gui_running")
+    set guioptions-=r
+    set guioptions-=T
+    set guioptions-=m
+    set lines=31
+    set columns=113
+    set gfn=Inconsolata:h13
+    set guifont=Inconsolata:h13
+    set cursorline
+endif
+
+let clj_want_gorilla = 1
+let vimclojure#NailgunClient = "$HOME/vimclojure/ng"
+au Bufenter,Bufnewfile *.clj setl complete+=k~/.clj_completions

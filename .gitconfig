@@ -1,0 +1,11 @@
+[user]
+	name = dulanov
+	email = dulanov@gmail.com
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[core]
+	editor = vim
+[merge]
+	tool = vimdiff
