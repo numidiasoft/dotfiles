@@ -30,7 +30,7 @@ set wildmenu
 set lazyredraw
 
 set backup
-set backup=$HOME/.vim/backup
+set backupdir=$HOME/.vim/backup
 set directory=$HOME/.vim/tmp
 
 set nohls
@@ -52,6 +52,6 @@ if has("gui_running")
     set cursorline
 endif
 
-let clj_want_gorilla = 1
-let vimclojure#NailgunClient = "$HOME/vimclojure/ng"
+let clj_want_gorilla=1
+let vimclojure#NailgunClient="$HOME/vimclojure/ng"
 au Bufenter,Bufnewfile *.clj setl complete+=k~/.clj_completions
