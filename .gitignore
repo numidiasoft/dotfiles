@@ -4,6 +4,7 @@
 .vim/plugin/
 .vim/tmp/
 .viminfo
+.vimperator/
 .xmonad/xmonad.errors
 .xmonad/xmonad.hi
 .xmonad/xmonad-i386-linux
