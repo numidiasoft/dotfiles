@@ -1,5 +1,7 @@
 .ssh/
 .vim/backup/
+.vim/doc/
+.vim/plugin/
 .vim/tmp/
 .viminfo
 .xmonad/xmonad.errors
