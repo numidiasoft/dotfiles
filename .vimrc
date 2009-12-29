@@ -97,3 +97,11 @@ map! <F10> <esc>:bd<cr>
 map! <F11> <esc>:TlistToggle<cr>
 
 map! <F12> <esc>:bn<cr>
+
+nmap <C-N>v :NERDTree<cr>
+vmap <C-N>v <esc>:NERDTree<cr>i
+imap <C-N>v <esc>:NERDTree<cr>i
+
+nmap <C-N>x :NERDTreeClose<cr>
+vmap <C-N>x <esc>:NERDTreeClose<cr>i
+imap <C-N>x <esc>:NERDTreeClose<cr>i
