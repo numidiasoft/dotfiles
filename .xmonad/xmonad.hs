@@ -1,25 +1,28 @@
 import XMonad
-import XMonad.Util.EZConfig
+import XMonad.Util.EZConfig(additionalKeys)
+import qualified XMonad.StackSet as W
+import qualified Data.Map as M
 import XMonad.Hooks.DynamicLog
 
-myKeys = [
-        ("M-<Right>",       windows W.focusDown)
-        , ("M-S-<Right>",   windows W.swapDown)
-        , ("M-<Left>",      windows W.focusUp)
-        , ("M-S-<Left>",     windows W.swapUp)
-    ]
+myBorderWidth = 2
+myNormalBorderColor = "#202030"
+myFocusedBorderColor = "#A0A0D0"
 
-myLogHook = dynamicLogWithPP xmobarPP
+myWorkspaces = ["web", "work", "virt"]
 
-myManageHook = composeAll [
-        className =? "Firefox-bin" --> moveTo "web"    
-    ]
-        where moveTo = doF . W.shift
+myBar = "xmobar"
 
-main = xmonad defaultConfig {
+myPP = xmobarPP {ppCurrent = xmobarColor "#429942" "" . wrap "<" ">"}
+
+toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
+
+myConfig = defaultConfig {
         modMask = mod4Mask -- Use Super instead of Alt
         , terminal = "urxvt"
-        , keys = myKeys
-        , logHook = myLogHook
-        , manageHook = myManageHook
+        , workspaces = myWorkspaces
+        , borderWidth = myBorderWidth
+        , normalBorderColor = myNormalBorderColor
+        , focusedBorderColor = myFocusedBorderColor
     }
+
+main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
