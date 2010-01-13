@@ -1,2 +1,4 @@
-:set guioptions-=r
+set titlestring=Firefox
+:set guioptions-=brT
 :set showtabline=0
+colorscheme zenburn
