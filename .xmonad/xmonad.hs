@@ -13,6 +13,12 @@ myFocusedBorderColor = "#A0A0D0"
 
 myWorkspaces = ["web", "work", "virt", "4", "5", "6", "7"]
 
+myManageHook = composeAll
+    [
+        className =? "Gimp"         --> doFloat
+        , className =? "Vncviewer"  --> doFloat
+    ]
+
 --myLayout = smartBorders
 --        $ onWorkspace "web" (browseLayout ||| Full)
 --        $ genericLayout
