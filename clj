@@ -1,10 +1,9 @@
 #!/bin/bash 
-CLOJURE_JAR=$CLOJURE_HOME/clojure.jar
-CONTRIB_JAR=$CLOJURE_HOME/clojure-contrib.jar
+CLOJURE_JAR=$HOME/clojure/clojure.jar
+CONTRIB_JAR=$HOME/clojure-contrib/clojure-contrib.jar
 CLASSPATH=$CLOJURE_JAR:$CONTRIB_JAR
-JLINE_JAR=$JLINE_HOME/jline.jar
 if [ $# -eq 0 ] ; then
-    CLASSPATH=$JLINE_JAR:$CLASSPATH
+    CLASSPATH=$HOME/jline/jline.jar:$CLASSPATH
     java -cp $CLASSPATH jline.ConsoleRunner clojure.main -i "$HOME/.cljrc.clj" --repl
 else
     TMPFILE=""
