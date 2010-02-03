@@ -18,3 +18,5 @@ fi
 if ((EUID == 0)); then # root
     path=($path /sbin /usr/sbin /usr/local/sbin /opt/local/sbin)
 fi
+
+alias -s pdf=evince
