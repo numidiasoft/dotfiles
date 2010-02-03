@@ -6,6 +6,8 @@ export LANG=en_US.UTF-8
 export TERM=rxvt-unicode
 export EDITOR=vi
 
+bindkey -v
+
 path=($path /bin /usr/bin /usr/local/bin $HOME/bin)
 manpath=($manpath /usr/man)
 cdpath=(~ ..)
