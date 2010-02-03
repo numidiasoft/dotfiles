@@ -1,12 +1,7 @@
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export ZSH=$HOME/.oh-my-zsh
+export ZSH_THEME="xiong-chiamiov-plus"
+source $ZSH/oh-my-zsh.sh
+
 export LANG=en_US.UTF-8
 export TERM=rxvt-unicode
 export EDITOR=vi
-
-PROMPT=$'%{\e[1;32m%}> %{\e[0m%}'
-RPROMPT=$'%{\e[1;34m%}%~ %{\e[1;32m%}%#%{\e[0m%}'
-
-alias ls="ls --color=auto"
-
-alias du="du -h"
-alias df="df -h"
