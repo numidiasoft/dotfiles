@@ -11,7 +11,7 @@ bindkey -v
 path=($path /bin /usr/bin /usr/local/bin $HOME/bin)
 manpath=($manpath /usr/man)
 cdpath=(~ ..)
-if [["$VENDOR" == "apple"]]; then
+if [[ "$VENDOR" == "apple" ]]; then
     path=($path /opt/local/bin)
     manpath=($manpath /opt/local/share/man)
 fi
