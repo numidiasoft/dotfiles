@@ -1,11 +1,21 @@
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export ZSH=$HOME/.oh-my-zsh
+export ZSH_THEME="wezm"
+source $ZSH/oh-my-zsh.sh
+
 export LANG=en_US.UTF-8
 export EDITOR=vi
 
-PROMPT=$'%{\e[1;32m%}> %{\e[0m%}'
-RPROMPT=$'%{\e[1;34m%}%~ %{\e[1;32m%}%#%{\e[0m%}'
+bindkey -v
 
-alias ls="ls --color=auto"
+path=($path /bin /usr/bin /usr/local/bin $HOME/bin)
+manpath=($manpath /usr/man)
+cdpath=(~ ..)
+if [[ "$VENDOR" == "apple" ]]; then
+    path=($path /opt/local/bin)
+    manpath=($manpath /opt/local/share/man)
+fi
+if ((EUID == 0)); then # root
+    path=($path /sbin /usr/sbin /usr/local/sbin /opt/local/sbin)
+fi
 
-alias du="du -h"
-alias df="df -h"
+alias -s pdf=evince
