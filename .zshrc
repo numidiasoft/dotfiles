@@ -7,7 +7,10 @@ export EDITOR=vi
 bindkey -v
 export PAGER="less"
 
-path=($path /bin /usr/bin /usr/local/bin $HOME/bin)
+export MAVEN_OPTS='-Xmx512M -XX:MaxPermSize=256M'
+export GRADLE_HOME=$HOME/gradle-0.9
+
+path=($path /bin /usr/bin /usr/local/bin $HOME/bini $GRADLE_HOME/bin)
 manpath=($manpath /usr/man)
 cdpath=(~ ..)
 if [[ "$VENDOR" == "apple" ]]; then
@@ -24,6 +27,8 @@ alias la="ls -la"
 alias grep="grep --color"
 alias df="df -h"
 alias du="du -h"
+
+alias ng_server='$HOME/vimclojure/ng_server.sh'
 
 alias -s pdf=evince
 alias -s odt=oowriter
