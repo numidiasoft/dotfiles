@@ -25,7 +25,7 @@ alias grep="grep --color"
 alias df="df -h"
 alias du="du -h"
 
-alias ng_server='$HOME/vimclojure/ng_server.sh'
+alias ng_server='$HOME/.vimclojure/ng_server.sh'
 
 alias -s pdf=evince
 alias -s odt=oowriter
