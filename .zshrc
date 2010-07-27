@@ -21,9 +21,6 @@ if ((EUID == 0)); then # root
     path=($path /sbin /usr/sbin /usr/local/sbin /opt/local/sbin)
 fi
 
-alias ls="ls --color=auto -h"
-alias ll="ls -l"
-alias la="ls -la"
 alias grep="grep --color"
 alias df="df -h"
 alias du="du -h"
