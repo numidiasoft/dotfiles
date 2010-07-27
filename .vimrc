@@ -1,7 +1,6 @@
 " dulanov's (http://dulanov.name) Vim Config
 set nocompatible
 set hidden
-set number
 set showmode
 set history=1000
 
@@ -63,13 +62,11 @@ endif
 
 let mapleader=","
 let maplocalleader=","
-let clj_want_gorilla=1
-let g:clj_highlight_builtins = 1
-let g:clj_highlight_contrib = 1
-let g:clj_paren_rainbow = 0
-let g:clj_want_gorilla = 1
+let clj_highlight_builtins = 1
+let clj_highlight_contrib = 1
+let clj_paren_rainbow = 0
+let clj_want_gorilla = 1
 let vimclojure#NailgunClient="/usr/bin/ng"
-au Bufenter,Bufnewfile *.clj setl complete+=k~/.clj_completions
 
 nmap <Space> <PageDown>
 
@@ -77,8 +74,6 @@ imap <C-Space> <C-X><C-O>
 
 vmap <C-C> "+yi
 imap <C-V> <esc>"+gPi
-
-map <S-Insert> <MiddleMouse>
 
 nmap <F2> :w<cr>
 vmap <F2> <esc>:w<cr>i
