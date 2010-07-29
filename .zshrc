@@ -7,6 +7,7 @@ export EDITOR=vi
 bindkey -v
 export PAGER="less"
 
+export JAVA_OPTS='-server -Dfile.encoding=UTF-8 -Xmx512m -XX:MaxPermSize=256m'
 export MAVEN_OPTS='-Xmx512M -XX:MaxPermSize=256M'
 export GRADLE_HOME=$HOME/gradle-0.9
 
