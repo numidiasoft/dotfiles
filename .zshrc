@@ -7,7 +7,9 @@ export EDITOR=vi
 bindkey -v
 export PAGER="less"
 
-path=($path /bin /usr/bin /usr/local/bin $HOME/bin)
+export JAVA_OPTS='-Dfile.encoding=UTF-8'
+
+path=($path /bin /usr/bin /usr/local/bin $HOME/bin $HOME/.cljr/bin)
 manpath=($manpath /usr/man)
 cdpath=(~ ..)
 if [[ "$VENDOR" == "apple" ]]; then
