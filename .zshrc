@@ -8,8 +8,10 @@ bindkey -v
 export PAGER="less"
 
 export JAVA_OPTS='-Dfile.encoding=UTF-8'
+export MAVEN_OPTS='-Xmx512M -XX:MaxPermSize=256M'
+export GRADLE_HOME=$HOME/gradle-0.9
 
-path=($path /bin /usr/bin /usr/local/bin $HOME/bin $HOME/.cljr/bin)
+path=($path /bin /usr/bin /usr/local/bin $HOME/bini $GRADLE_HOME/bin $HOME/.cljr/bin)
 manpath=($manpath /usr/man)
 cdpath=(~ ..)
 if [[ "$VENDOR" == "apple" ]]; then
@@ -23,6 +25,8 @@ fi
 alias grep="grep --color"
 alias df="df -h"
 alias du="du -h"
+
+alias ng_server='$HOME/.vimclojure/ng_server.sh'
 
 alias -s pdf=evince
 alias -s odt=oowriter

@@ -1,13 +1,13 @@
 " dulanov's (http://dulanov.name) Vim Config
 set nocompatible
 set hidden
+set showmode
 set history=1000
 
+set bs=2
 set expandtab
 set autoindent
 set smartindent
-set tabstop=4
-set shiftwidth=4
 
 filetype on
 filetype plugin on
@@ -60,10 +60,13 @@ if has("gui_running")
     endif
 endif
 
-let mapleader = ","
-let clj_want_gorilla=1
-let vimclojure#NailgunClient="$HOME/vimclojure/ng"
-au Bufenter,Bufnewfile *.clj setl complete+=k~/.clj_completions
+let mapleader=","
+let maplocalleader=","
+let clj_highlight_builtins = 1
+let clj_highlight_contrib = 1
+let clj_paren_rainbow = 0
+let clj_want_gorilla = 1
+let vimclojure#NailgunClient="/usr/bin/ng"
 
 nmap <Space> <PageDown>
 
@@ -71,8 +74,6 @@ imap <C-Space> <C-X><C-O>
 
 vmap <C-C> "+yi
 imap <C-V> <esc>"+gPi
-
-map <S-Insert> <MiddleMouse>
 
 nmap <F2> :w<cr>
 vmap <F2> <esc>:w<cr>i
