@@ -10,7 +10,7 @@ export PAGER="less"
 export MAVEN_OPTS='-Xmx512M -XX:MaxPermSize=256M'
 export GRADLE_HOME=$HOME/gradle-0.9
 
-path=($path /bin /usr/bin /usr/local/bin $HOME/bini $GRADLE_HOME/bin)
+path=($path /bin /usr/bin /usr/local/bin $HOME/bini $GRADLE_HOME/bin $HOME/.cljr/bin)
 manpath=($manpath /usr/man)
 cdpath=(~ ..)
 if [[ "$VENDOR" == "apple" ]]; then
