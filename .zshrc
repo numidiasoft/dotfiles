@@ -11,7 +11,7 @@ export JAVA_OPTS='-server -Dfile.encoding=UTF-8 -Xmx512m -XX:MaxPermSize=256m'
 export MAVEN_OPTS='-Xmx512M -XX:MaxPermSize=256M'
 export GRADLE_HOME=$HOME/gradle-0.9
 
-path=($path /bin /usr/bin /usr/local/bin $HOME/bini $GRADLE_HOME/bin $HOME/.cljr/bin)
+path=($path /bin /usr/bin /usr/local/bin $HOME/bini $GRADLE_HOME/bin $HOME/.cljr/bin $HOME/play-1.0)
 manpath=($manpath /usr/man)
 cdpath=(~ ..)
 if [[ "$VENDOR" == "apple" ]]; then
