@@ -11,6 +11,8 @@ export JAVA_OPTS='-server -Dfile.encoding=UTF-8 -Xmx512m -XX:MaxPermSize=256m'
 export MAVEN_OPTS='-Xmx512M -XX:MaxPermSize=256M'
 export GRADLE_HOME=$HOME/gradle-0.9
 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+
 path=($path /bin /usr/bin /usr/local/bin $HOME/bini $GRADLE_HOME/bin $HOME/.cljr/bin)
 manpath=($manpath /usr/man)
 cdpath=(~ ..)
