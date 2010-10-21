@@ -13,7 +13,5 @@ urxvt -e tmux -2 attach-session -t default &
 
 gvim &
 firefox &
-unclutter &
 
-xsetroot -cursor_name left_ptr
-exec ck-launch-session xmonad
+exec ck-launch-session awesome
