@@ -13,6 +13,11 @@ export JAVA_OPTS='-server -Dfile.encoding=UTF-8 -Xmx512m -XX:MaxPermSize=256m -D
 export MAVEN_OPTS='-Xmx512M -XX:MaxPermSize=256M'
 export GRADLE_HOME=$HOME/gradle-0.9
 
+export CPATH=/opt/local/include
+export C_INCLUDE_PATH=/opt/local/include
+export CPLUS_INCLUDE_PATH=/opt/local/include
+export LIBRARY_PATH=/opt/local/lib
+
 path=($path /bin /usr/bin /usr/local/bin $HOME/bini $GRADLE_HOME/bin $HOME/.cljr/bin)
 manpath=($manpath /usr/man)
 cdpath=(~ ..)
