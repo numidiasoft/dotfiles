@@ -6,6 +6,7 @@ export LANG=en_US.UTF-8
 export EDITOR=vi
 bindkey -v
 export PAGER="less"
+export PERLLIB=$PATH
 
 export JAVA_OPTS='-server -Dfile.encoding=UTF-8 -Xmx512m -XX:MaxPermSize=256m -Dcom.sun.management.jmxremote'
 export MAVEN_OPTS='-Xmx512M -XX:MaxPermSize=256M'
