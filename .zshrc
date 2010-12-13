@@ -1,4 +1,4 @@
-ulimit -n 2000
+ulimit -c unlimited
 
 export ZSH=$HOME/.oh-my-zsh
 export ZSH_THEME="wezm"
