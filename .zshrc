@@ -1,4 +1,4 @@
-ulimit -n 2000
+ulimit -c unlimited
 
 export ZSH=$HOME/.oh-my-zsh
 export ZSH_THEME="wezm"
@@ -8,6 +8,7 @@ export LANG=en_US.UTF-8
 export EDITOR=vi
 bindkey -v
 export PAGER="less"
+export PERLLIB=$PATH
 
 export JAVA_OPTS='-server -Dfile.encoding=UTF-8 -Xmx512m -XX:MaxPermSize=256m -Dcom.sun.management.jmxremote'
 export MAVEN_OPTS='-Xmx512M -XX:MaxPermSize=256M'
@@ -34,6 +35,8 @@ alias df="df -h"
 alias du="du -h"
 
 alias ng-server='java -cp "`lein classpath`" vimclojure.nailgun.NGServer 127.0.0.1' 
+
+source /sw/bin/init.sh
 
 alias -s pdf=evince
 alias -s odt=oowriter
