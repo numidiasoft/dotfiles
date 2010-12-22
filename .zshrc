@@ -12,14 +12,13 @@ export PERLLIB=$PATH
 
 export JAVA_OPTS='-server -Dfile.encoding=UTF-8 -Xmx512m -XX:MaxPermSize=256m -Dcom.sun.management.jmxremote'
 export MAVEN_OPTS='-Xmx512M -XX:MaxPermSize=256M'
-export GRADLE_HOME=$HOME/gradle-0.9
 
 export CPATH=/opt/local/include
 export C_INCLUDE_PATH=/opt/local/include
 export CPLUS_INCLUDE_PATH=/opt/local/include
 export LIBRARY_PATH=/opt/local/lib
 
-path=($path /bin /usr/bin /usr/local/bin $HOME/bini $GRADLE_HOME/bin $HOME/.cljr/bin)
+path=(/usr/local/bin /usr/bin $HOME/bin $path)
 manpath=($manpath /usr/man)
 cdpath=(~ ..)
 if [[ "$VENDOR" == "apple" ]]; then
@@ -30,13 +29,16 @@ if ((EUID == 0)); then # root
     path=($path /sbin /usr/sbin /usr/local/sbin /opt/local/sbin)
 fi
 
+export WORKON_HOME=$HOME/.virtualenvs
+[[ ! -e "$WORKON_HOME" ]] && mkdir "$WORKON_HOME"
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
+source /usr/bin/virtualenvwrapper.sh
+
 alias grep="grep --color"
 alias df="df -h"
 alias du="du -h"
 
 alias ng-server='java -cp "`lein classpath`" vimclojure.nailgun.NGServer 127.0.0.1' 
-
-source /sw/bin/init.sh
 
 alias -s pdf=evince
 alias -s odt=oowriter
