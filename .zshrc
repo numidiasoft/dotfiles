@@ -13,10 +13,7 @@ export PERLLIB=$PATH
 export JAVA_OPTS='-server -Dfile.encoding=UTF-8 -Xmx512m -XX:MaxPermSize=256m -Dcom.sun.management.jmxremote'
 export MAVEN_OPTS='-Xmx512M -XX:MaxPermSize=256M'
 
-export CPATH=/opt/local/include
-export C_INCLUDE_PATH=/opt/local/include
-export CPLUS_INCLUDE_PATH=/opt/local/include
-export LIBRARY_PATH=/opt/local/lib
+export LD_LIBRARY_PATH=/usr/local/lib
 
 path=(/usr/local/bin /usr/bin $HOME/bin $path)
 manpath=($manpath /usr/man)
