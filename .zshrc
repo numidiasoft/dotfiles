@@ -26,10 +26,15 @@ if ((EUID == 0)); then # root
     path=($path /sbin /usr/sbin /usr/local/sbin /opt/local/sbin)
 fi
 
-export WORKON_HOME=$HOME/.virtualenvs
+WORKON_HOME=$HOME/.virtualenvs
 [[ ! -e "$WORKON_HOME" ]] && mkdir "$WORKON_HOME"
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
-source /usr/bin/virtualenvwrapper.sh
+#VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
+if [ -e /usr/bin/virtualenvwrapper.sh ]; then
+    source /usr/bin/virtualenvwrapper.sh
+fi
+if [ -e /usr/local/bin/virtualenvwrapper.sh ]; then
+    source /usr/local/bin/virtualenvwrapper.sh
+fi
 
 alias grep="grep --color"
 alias df="df -h"
