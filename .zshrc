@@ -42,10 +42,7 @@ alias du="du -h"
 
 alias ng-server='java -cp "`lein classpath`" vimclojure.nailgun.NGServer 127.0.0.1' 
 
-unset TMUX
 tmux start-server
 if ! tmux has-session -t hub; then
     tmux new-session -s hub
-else
-    tmux -2 attach-session -d -t hub
 fi
