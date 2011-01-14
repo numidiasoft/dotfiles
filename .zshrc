@@ -7,11 +7,11 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 export EDITOR=vi
 bindkey -v
-export PAGER="less"
+export PAGER="less"    
 export PERLLIB=$PATH
 
-export JAVA_OPTS='-server -Dfile.encoding=UTF-8 -Xmx512m -XX:MaxPermSize=256m -Dcom.sun.management.jmxremote'
-export MAVEN_OPTS='-Xmx512M -XX:MaxPermSize=256M'
+export JAVA_OPTS='-server -Dfile.encoding=UTF-8 -Xmx256m -XX:MaxPermSize=128m'
+export MAVEN_OPTS='-Xmx256M -XX:MaxPermSize=128M'
 
 export LD_LIBRARY_PATH=/usr/local/lib
 
@@ -42,28 +42,10 @@ alias du="du -h"
 
 alias ng-server='java -cp "`lein classpath`" vimclojure.nailgun.NGServer 127.0.0.1' 
 
-alias -s pdf=evince
-alias -s odt=oowriter
-alias -s doc=oowriter
-alias -s docx=oowriter
-alias -s rtf=oowriter
-alias -s ods=oowriter
-alias -s xls=oocalc
-alias -s xlsx=oocalc
-alias -s odp=ooimpress
-alias -s ppt=ooimpress
-alias -s pptx=ooimpress
-alias -s htm=firefox
-alias -s html=firefox
-alias -s png=eog
-alias -s jpg=eog
-alias -s gif=eog
-alias -s tar=file-roller
-alias -s gz=file-roller
-alias -s bz2=file-roller
-alias -s rar=file-roller
-alias -s zip=file-roller
-alias -s py=python
-alias -s erl=erl
-
-tmux -2
+unset TMUX
+tmux start-server
+if ! tmux has-session -t hub; then
+    tmux new-session -s hub
+else
+    tmux -2 attach-session -d -t hub
+fi
