@@ -1,48 +1,72 @@
 " dulanov's (http://dulanov.name) Vim Config
+filetype off
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
+filetype plugin indent on
+
 set nocompatible
+set modelines=0
+
+let mapleader=","
+let maplocalleader=","
+
 set hidden
-set showmode
-set tabstop=4
-set history=1000
-
-set bs=2
-set expandtab
-set autoindent
-set smartindent
-
-filetype on
-filetype plugin on
-filetype indent on
-
-if !exists("syntax_on")
-    syntax on
-endif
-
 set nowrap
 set backspace=indent,eol,start
 
+set autoindent
+set copyindent
+set number
+
+set title
+set tabstop=4
+set softtabstop=4
+set expandtab
+set shiftwidth=4
+set shiftround
 set showmatch
+set showmode
+set ignorecase
+set smartcase
+set smarttab
+
+set nohls
+set hlsearch
+set incsearch
+
+set history=1000
+set undolevels=1000
 
 set novisualbell
+set noerrorbells
 set vb t_vb=
 
 set ruler
 set showcmd
-set ttyfast
 set wildmenu
 set lazyredraw
+set cursorline
 
-set backup
-set backupdir=$HOME/.vim/backup
-set directory=$HOME/.vim/tmp
+set list
+set listchars=tab:>.,trail:.,extends:#,nbsp:.
+autocmd filetype html,xml set listchars-=tab:>.
 
-set nohls
-set incsearch
+set autochdir
+set nobackup
+set noswapfile
+set directory=~/.vim/.tmp,~/tmp,/tmp
 
-set virtualedit=all
+au FocusLost * :wa
 
-set background=dark
-colorscheme ir_black
+set mouse=a
+
+if &t_Co > 2 || has("gui_running")
+   syntax on
+endif
+
+if &t_Co >= 256 || has("gui_running")
+   colorscheme mustang
+endif
 
 if has("gui_running")
     set guioptions-=r
@@ -61,11 +85,39 @@ if has("gui_running")
     endif
 endif
 
-let mapleader=","
-let maplocalleader=","
-
 let vimclojure#WantNailgun = 1
 let vimclojure#NailgunClient = "/usr/bin/ng"
+let vimclojure#HighlightBuiltins = 1
+
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+
+nnoremap ; :
+
+nnoremap j gj
+nnoremap k gk
+
+nnoremap / /\v
+vnoremap / /\v
+
+nnoremap <leader>w <C-w>v<C-w>l
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+cmap w!! w !sudo tee % >/dev/null
+
+nnoremap <leader><space> :noh<cr>
+nnoremap <tab> %
+vnoremap <tab> %
 
 nmap <Space> <PageDown>
 
@@ -74,34 +126,25 @@ imap <C-Space> <C-X><C-O>
 vmap <C-C> "+yi
 imap <C-V> <esc>"+gPi
 
-nmap <F2> :w<cr>
-vmap <F2> <esc>:w<cr>i
-imap <F2> <esc>:w<cr>i
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
 
-map! <F3> <esc>:copen<cr>
+set pastetoggle=<F2>
 
-map! <F5> <esc>:BufExplorer<cr>
+map <F3> :bp<cr>
+vmap <F3> <esc>:bp<cr>i
+imap <F3> <esc>:bp<cr>i
 
-map <F6> :bp<cr>
-vmap <F6> <esc>:bp<cr>i
-imap <F6> <esc>:bp<cr>i
+map <F4> :bn<cr>
+vmap <F4> <esc>:bn<cr>i
+imap <F4> <esc>:bn<cr>i
 
-map <F7> :bn<cr>
-vmap <F7> <esc>:bn<cr>i
-imap <F7> <esc>:bn<cr>i
-
-map! <F8> <esc>:MarksBrowser<cr>
+nnoremap <silent> <F5> :YRShow<cr>
+inoremap <silent> <F5> <ESC>:YRShow<cr>
 
 map! <F10> <esc>:bd<cr>
 
-map! <F11> <esc>:TlistToggle<cr>
-
-map! <F12> <esc>:bn<cr>
-
-nmap <C-N>v :NERDTree<cr>
-vmap <C-N>v <esc>:NERDTree<cr>i
-imap <C-N>v <esc>:NERDTree<cr>i
-
-nmap <C-N>x :NERDTreeClose<cr>
-vmap <C-N>x <esc>:NERDTreeClose<cr>i
-imap <C-N>x <esc>:NERDTreeClose<cr>i
+" Quickly edit/reload the vimrc file
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
