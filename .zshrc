@@ -28,7 +28,9 @@ fi
 
 WORKON_HOME=$HOME/.virtualenvs
 [[ ! -e "$WORKON_HOME" ]] && mkdir "$WORKON_HOME"
-#VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
+if [ -e /usr/bin/python2 ]; then
+    VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
+fi
 if [ -e /usr/bin/virtualenvwrapper.sh ]; then
     source /usr/bin/virtualenvwrapper.sh
 fi
