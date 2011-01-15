@@ -7,7 +7,7 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 export EDITOR=vi
 bindkey -v
-export PAGER="less"    
+export PAGER="less"
 export PERLLIB=$PATH
 
 export JAVA_OPTS='-server -Dfile.encoding=UTF-8 -Xmx256m -XX:MaxPermSize=128m'

@@ -16,7 +16,8 @@ set backspace=indent,eol,start
 
 set autoindent
 set copyindent
-set number
+set relativenumber
+set colorcolumn=80,120
 
 set title
 set tabstop=4
@@ -35,7 +36,8 @@ set hlsearch
 set incsearch
 
 set history=1000
-set undolevels=1000
+set undofile
+set undodir=/tmp
 
 set novisualbell
 set noerrorbells
@@ -51,7 +53,6 @@ set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 autocmd filetype html,xml set listchars-=tab:>.
 
-set autochdir
 set nobackup
 set noswapfile
 set directory=~/.vim/.tmp,~/tmp,/tmp
@@ -74,20 +75,15 @@ if has("gui_running")
     set guioptions-=m
     set cursorline
     set lines=31
-    set columns=113
+    set columns=140
     if has("gui_gtk2")
         set guifont=ProggyCleanTT\ 12
     elseif has("X11")
         set guifont=-*-courier-medium-r-normal-*-*-180-*-*-m-*-*
     else
-        set gfn=Inconsolata:h13
-        set guifont=Inconsolata:h13
+        set guifont=Consolas:h12
     endif
 endif
-
-let vimclojure#WantNailgun = 1
-let vimclojure#NailgunClient = "/usr/bin/ng"
-let vimclojure#HighlightBuiltins = 1
 
 nnoremap <up> <nop>
 nnoremap <down> <nop>
@@ -148,3 +144,7 @@ map! <F10> <esc>:bd<cr>
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+let vimclojure#WantNailgun = 1
+let vimclojure#NailgunClient = "/Users/dulanov/.vim/bundle/VimClojure/lib/vimclojure-nailgun-client/ng"
+let vimclojure#HighlightBuiltins = 1

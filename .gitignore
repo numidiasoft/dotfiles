@@ -1,12 +1,6 @@
-classes
-lib
 .ssh/
-.vim/backup/
 .vim/doc/
 .vim/plugin/
 .vim/tmp/
 .viminfo
-.xmonad/xmonad.errors
-.xmonad/xmonad.hi
-.xmonad/xmonad-i386-linux
-.xmonad/xmonad.o
+.DS_Store
