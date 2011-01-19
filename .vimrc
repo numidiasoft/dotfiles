@@ -57,7 +57,7 @@ au FocusLost * :wa
 
 set mouse=a
 
-if version >= 730
+if version >= 703
   set relativenumber
   set colorcolumn=80,120
 
