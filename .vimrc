@@ -16,8 +16,6 @@ set backspace=indent,eol,start
 
 set autoindent
 set copyindent
-set relativenumber
-set colorcolumn=80,120
 
 set title
 set tabstop=4
@@ -36,8 +34,6 @@ set hlsearch
 set incsearch
 
 set history=1000
-set undofile
-set undodir=/tmp
 
 set novisualbell
 set noerrorbells
@@ -60,6 +56,14 @@ set directory=~/.vim/.tmp,~/tmp,/tmp
 au FocusLost * :wa
 
 set mouse=a
+
+if version >= 730
+  set relativenumber
+  set colorcolumn=80,120
+
+  set undofile
+  set undodir=/tmp
+endif
 
 if &t_Co > 2 || has("gui_running")
    syntax on
