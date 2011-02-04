@@ -56,6 +56,7 @@ set directory=~/.vim/.tmp,~/tmp,/tmp
 au FocusLost * :wa
 
 set mouse=a
+set clipboard=unnamed
 
 if version >= 703
   set relativenumber
