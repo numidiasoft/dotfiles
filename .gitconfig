@@ -9,3 +9,7 @@
 	editor = vim
 [merge]
 	tool = vimdiff
+[giggle]
+	main-window-maximized = false
+	main-window-geometry = 700x550+618+166
+	main-window-view = HistoryView

@@ -82,7 +82,7 @@ if has("gui_running")
     set lines=31
     set columns=140
     if has("gui_gtk2")
-        set guifont=DroidSansMono\ 8
+        set guifont=DroidSansMono\ 9
     elseif has("X11")
         set guifont=-*-courier-medium-r-normal-*-*-180-*-*-m-*-*
     else
