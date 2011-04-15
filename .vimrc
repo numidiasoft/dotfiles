@@ -49,6 +49,8 @@ set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 autocmd filetype html,xml set listchars-=tab:>.
 
+au BufNewFile,BufRead rebar.config set filetype=erlang
+
 set nobackup
 set noswapfile
 set directory=~/.vim/.tmp,~/tmp,/tmp
