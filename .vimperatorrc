@@ -1,2 +1,3 @@
 set titlestring=Firefox
-:set guioptions-=brT
+:set gui=none,tabs
+:set nosb
