@@ -15,6 +15,8 @@ export MAVEN_OPTS='-Xmx256M -XX:MaxPermSize=128M'
 
 export LD_LIBRARY_PATH=/usr/local/lib
 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
 path=(/usr/local/bin /usr/bin $HOME/bin $path)
 manpath=($manpath /usr/man)
 cdpath=(~ ..)
