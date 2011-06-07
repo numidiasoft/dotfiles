@@ -1,0 +1,9 @@
+OPTIONS=color,hilite_pet,lit_corridor,menucolors,DECgraphics
+OPTIONS=invweight,showdmg,showweight,showexp,showscore,time
+OPTIONS=sortloot=loot,disclose:+i+a+v+g+c,msg_windows:f
+OPTIONS=boulder:0,pushweapon
+OPTIONS=autodig,!autopickup
+MENUCOLOR="[Cc]ursed"=orange&bold&underline
+MENUCOLOR="[Uu]ncursed"=yellow
+MENUCOLOR="[Bb]lessed"=lightgreen
+MENUCOLOR="-[0-9]"=orange
