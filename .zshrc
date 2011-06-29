@@ -15,7 +15,7 @@ function loadrvm() {
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 }
 
-path=(/usr/local/bin /usr/bin $HOME/bin $path)
+path=(bin $HOME/bin /usr/local/bin /usr/bin $path)
 manpath=($manpath /usr/man)
 cdpath=(~ ..)
 if [[ "$VENDOR" == "apple" ]]; then
