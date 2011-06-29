@@ -14,20 +14,23 @@ set hidden
 set nowrap
 set backspace=indent,eol,start
 
-set autoindent
-set copyindent
-
 set title
-set tabstop=4
-set softtabstop=4
+set tabstop=2
+set softtabstop=2
 set expandtab
-set shiftwidth=4
+set shiftwidth=2
 set shiftround
 set showmatch
 set showmode
 set ignorecase
 set smartcase
 set smarttab
+
+set autoindent
+set nosmartindent
+set cindent
+set cinkeys=!^F
+set cinoptions=(0t0c1
 
 set nohls
 set hlsearch
@@ -80,6 +83,8 @@ if has("gui_running")
     set guioptions-=r
     set guioptions-=T
     set guioptions-=m
+    set guioptions-=L
+    set guioptions+=c
     set cursorline
     set lines=31
     set columns=140
@@ -142,7 +147,3 @@ map! <F10> <esc>:bd<cr>
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
-
-let vimclojure#WantNailgun = 1
-let vimclojure#NailgunClient = "/Users/dulanov/.vim/bundle/VimClojure/lib/vimclojure-nailgun-client/ng"
-let vimclojure#HighlightBuiltins = 1

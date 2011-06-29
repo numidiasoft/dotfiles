@@ -1,5 +1,3 @@
-ulimit -c unlimited
-
 export ZSH=$HOME/.oh-my-zsh
 export ZSH_THEME="wezm"
 source $ZSH/oh-my-zsh.sh
@@ -13,9 +11,9 @@ export PERLLIB=$PATH
 export JAVA_OPTS='-server -Dfile.encoding=UTF-8 -Xmx256m -XX:MaxPermSize=128m'
 export MAVEN_OPTS='-Xmx256M -XX:MaxPermSize=128M'
 
-export LD_LIBRARY_PATH=/usr/local/lib
-
+function loadrvm() {
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+}
 
 path=(/usr/local/bin /usr/bin $HOME/bin $path)
 manpath=($manpath /usr/man)
@@ -28,23 +26,9 @@ if ((EUID == 0)); then # root
     path=($path /sbin /usr/sbin /usr/local/sbin /opt/local/sbin)
 fi
 
-WORKON_HOME=$HOME/.virtualenvs
-[[ ! -e "$WORKON_HOME" ]] && mkdir "$WORKON_HOME"
-if [ -e /usr/bin/python2 ]; then
-    VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
-fi
-if [ -e /usr/bin/virtualenvwrapper.sh ]; then
-    source /usr/bin/virtualenvwrapper.sh
-fi
-if [ -e /usr/local/bin/virtualenvwrapper.sh ]; then
-    source /usr/local/bin/virtualenvwrapper.sh
-fi
-
 alias grep="grep --color"
 alias df="df -h"
 alias du="du -h"
-
-alias ng-server='java -cp "`lein classpath`" vimclojure.nailgun.NGServer 127.0.0.1' 
 
 tmux start-server
 if ! tmux has-session -t hub; then

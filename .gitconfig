@@ -8,7 +8,9 @@
 [core]
 	editor = vim
 [merge]
-	tool = vimdiff
+    tool = vimdiff
+[alias]
+    st = status -s
 [giggle]
 	main-window-maximized = false
 	main-window-geometry = 700x550+618+166
