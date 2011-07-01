@@ -87,7 +87,7 @@ if has("gui_running")
     set guioptions+=c
     set cursorline
     set lines=31
-    set columns=140
+    set columns=96
     if has("gui_gtk2")
         set guifont=DroidSansMono\ 9
     elseif has("X11")
