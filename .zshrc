@@ -22,7 +22,7 @@ if [[ "$VENDOR" == "apple" ]]; then
     path=($path /opt/local/bin)
     manpath=($manpath /opt/local/share/man)
 fi
-if ((EUID == 0)); then # root
+if (("$USER" == "root")); then
     path=($path /sbin /usr/sbin /usr/local/sbin /opt/local/sbin)
 fi
 
