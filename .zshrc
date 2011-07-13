@@ -44,10 +44,9 @@ alias du="du -h"
 [ -r ~/.zshrc_local ] && . ~/.zshrc_local
 
 tmux start-server
+X=`tmux list-clients -t hub`
 if ! tmux has-session -t hub; then
     tmux new-session -s hub
-elif ! tmux list-clients -t hub; then
+elif [ -z $X ]; then
     tmux attach-session -d -t hub
-else
-    clear
 fi
