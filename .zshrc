@@ -46,6 +46,8 @@ alias du="du -h"
 tmux start-server
 if ! tmux has-session -t hub; then
     tmux new-session -s hub
-else
-    tmux attach-session -d -t hub
+fi
+if tmux list-clients -t hub; then
+    tmux attach-session -t hub
+    clear
 fi
