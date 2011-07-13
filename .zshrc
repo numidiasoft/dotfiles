@@ -48,6 +48,5 @@ if ! tmux has-session -t hub; then
     tmux new-session -s hub
 fi
 if tmux list-clients -t hub; then
-    tmux attach-session -t hub
-    clear
+    tmux attach-session -d -t hub
 fi
