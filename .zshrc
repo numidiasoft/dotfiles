@@ -33,4 +33,6 @@ alias du="du -h"
 tmux start-server
 if ! tmux has-session -t hub; then
     tmux new-session -s hub
+else
+    tmux attach-session -d -t hub
 fi
