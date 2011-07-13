@@ -2,6 +2,17 @@ export ZSH=$HOME/.oh-my-zsh
 export ZSH_THEME="wezm"
 source $ZSH/oh-my-zsh.sh
 
+setopt no_beep
+setopt no_prompt_cr
+setopt interactivecomments
+setopt extended_glob
+
+setopt append_history
+setopt extended_history
+setopt hist_no_store
+setopt hist_save_no_dups
+setopt hist_ignore_all_dups
+
 export LANG=en_US.UTF-8
 export EDITOR=vi
 bindkey -v
@@ -29,6 +40,8 @@ fi
 alias grep="grep --color"
 alias df="df -h"
 alias du="du -h"
+
+[ -r ~/.zshrc_local ] && . ~/.zshrc_local
 
 tmux start-server
 if ! tmux has-session -t hub; then
