@@ -22,9 +22,9 @@ export PERLLIB=$PATH
 export JAVA_OPTS='-server -Dfile.encoding=UTF-8 -Xmx256m -XX:MaxPermSize=128m'
 export MAVEN_OPTS='-Xmx256M -XX:MaxPermSize=128M'
 
-function loadrvm() {
+#function loadrvm() {
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-}
+#}
 
 path=(bin $HOME/bin /usr/local/bin /usr/bin $path)
 manpath=($manpath /usr/man)
