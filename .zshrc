@@ -26,6 +26,18 @@ function loadrvm() {
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 }
 
+WORKON_HOME=$HOME/.virtualenvs
+[[ ! -e "$WORKON_HOME" ]] && mkdir "$WORKON_HOME"
+if [ -e /usr/bin/python2 ]; then
+    VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
+fi
+if [ -e /usr/bin/virtualenvwrapper.sh ]; then
+    source /usr/bin/virtualenvwrapper.sh
+fi
+if [ -e /usr/local/bin/virtualenvwrapper.sh ]; then
+    source /usr/local/bin/virtualenvwrapper.sh
+fi
+
 path=(bin $HOME/bin /usr/local/bin /usr/bin $path)
 manpath=($manpath /usr/man)
 cdpath=(~ ..)
