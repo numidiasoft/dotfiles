@@ -2,4 +2,4 @@
 firefox&
 yeahconsole&
 dropboxd&
-exec ck-launch-session dbus-launch awesome
+exec ck-launch-session dbus-launch ssh-agent awesome
