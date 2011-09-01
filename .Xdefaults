@@ -1,7 +1,12 @@
 yeahconsole*term:urxvt
 yeahconsole*aniDelay:0
 yeahconsole*consoleHeight:31
+yeahconsole*keyFull:None+F11
 yeahconsole*toggleKey:None+F12
+yeahconsole*keySmaller:Control+KP_Subtract
+yeahconsole*keyBigger:Control+KP_Add
+yeahconsole*metaSendsEscape:true
+yeahconsole*restart:1
 
 URxvt.buffered: true
 URxvt.background: black
@@ -10,8 +15,10 @@ URxvt.cursorColor: green
 URxvt.underlineColor: yellow
 URxvt.font: xft:Terminus:pixelsize=12:antialias=false
 URxvt.boldFont: xft:Terminus:bold:pixelsize=12:antialias=false
+URxvt.saveLines: 6400
 URxvt.scrollBar: false
 URxvt.scrollBar_right: false
+URxvt.scrollstyle: plain
 URxvt.transparent: true
 URxvt.tintColor: black
 URxvt.shading: 32

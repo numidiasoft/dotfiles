@@ -1,4 +1,5 @@
 #!/bin/sh
-firefox &
-yeahconsole &
+firefox&
+yeahconsole&
+dropboxd&
 exec ck-launch-session dbus-launch awesome
