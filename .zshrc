@@ -22,9 +22,7 @@ export PERLLIB=$PATH
 export JAVA_OPTS='-server -Dfile.encoding=UTF-8 -Xmx256m -XX:MaxPermSize=128m'
 export MAVEN_OPTS='-Xmx256M -XX:MaxPermSize=128M'
 
-#function loadrvm() {
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-#}
 
 WORKON_HOME=$HOME/.virtualenvs
 [[ ! -e "$WORKON_HOME" ]] && mkdir "$WORKON_HOME"
@@ -55,9 +53,12 @@ alias du="du -h"
 
 [ -r ~/.zshrc_local ] && . ~/.zshrc_local
 
+eval `keychain --eval --agents ssh id_rsa`
+
 tmux start-server
 X=`tmux list-clients -t hub`
 if ! tmux has-session -t hub; then
+    echo 'eval `ssh-agent`'
     tmux new-session -s hub
 elif [ -z $X ]; then
     tmux attach-session -d -t hub

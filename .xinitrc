@@ -2,4 +2,4 @@
 firefox&
 yeahconsole&
 dropboxd&
-exec ssh-agent awesome
+exec awesome
