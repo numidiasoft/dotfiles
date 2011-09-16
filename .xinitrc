@@ -2,4 +2,5 @@
 firefox&
 yeahconsole&
 dropboxd&
+skype&
 exec awesome
