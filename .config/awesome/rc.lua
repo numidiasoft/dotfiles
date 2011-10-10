@@ -23,6 +23,11 @@ editor_cmd = terminal .. " -e " .. editor
 -- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
 
+-- Commands table
+local commands = {}
+commands.set_en = "setxkbmap -layout us"
+commands.set_ru = "setxkbmap -layout ru"
+
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
 {
@@ -213,6 +218,10 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
 
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
+
+    -- Custom keyboard switcher
+    awful.key({           }, "Shift", function () awful.util.spawn(commands.set_en) end),
+    awful.key({ "Control" }, "Shift", function () awful.util.spawn(commands.set_ru) end),
 
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
