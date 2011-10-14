@@ -1,5 +1,6 @@
 " dulanov's (http://dulanov.name) Vim Config
 filetype off
+call pathogen#infect()
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 filetype plugin indent on
@@ -147,3 +148,11 @@ map! <F10> <esc>:bd<cr>
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+let vimclojure#FuzzyIndent=1
+let vimclojure#HighlightBuiltins=1
+let vimclojure#HighlightContrib=1
+let vimclojure#DynamicHighlighting=1
+let vimclojure#ParenRainbow=1
+let vimclojure#WantNailgun = 1
+let vimclojure#NailgunClient = $HOME . "/.vim/lib/vimclojure-nailgun-client/ng"
