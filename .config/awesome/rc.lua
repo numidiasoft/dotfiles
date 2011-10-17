@@ -58,6 +58,7 @@ end
 -- {{{ Menu
 -- Create a laucher widget and a main menu
 myawesomemenu = {
+   { "lock", "xscreensaver-command -activate" },
    { "manual", terminal .. " -e man awesome" },
    { "edit config", editor_cmd .. " " .. awful.util.getdir("config") .. "/rc.lua" },
    { "restart", awesome.restart },
@@ -220,8 +221,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
     -- Custom keyboard switcher
-    awful.key({           }, "Shift", function () awful.util.spawn(commands.set_en) end),
-    awful.key({ "Control" }, "Shift", function () awful.util.spawn(commands.set_ru) end),
+    --awful.key({         }, "Caps_Lock", function () awful.util.spawn(commands.set_en) end),
+    --awful.key({ "Shift" }, "Caps_Lock", function () awful.util.spawn(commands.set_ru) end),
 
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
