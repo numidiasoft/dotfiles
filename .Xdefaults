@@ -3,8 +3,8 @@ yeahconsole*aniDelay:0
 yeahconsole*consoleHeight:31
 yeahconsole*keyFull:None+F11
 yeahconsole*toggleKey:None+F12
-yeahconsole*keySmaller:ControlAlt+k
-yeahconsole*keyBigger:ControlAlt+j
+yeahconsole*keySmaller:ControlAlt+h
+yeahconsole*keyBigger:ControlAlt+l
 yeahconsole*metaSendsEscape:true
 yeahconsole*restart:1
 
