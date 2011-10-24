@@ -8,7 +8,7 @@
 
 -- {{{ Main
 theme = {}
-theme.wallpaper_cmd = { "awsetbg /home/dulanov/.config/awesome/themes/background.png" }
+theme.wallpaper_cmd = { "awsetbg /home/dulanov/.config/awesome/themes/zenburn/zenburn-background.jpg" }
 -- }}}
 
 -- {{{ Styles

@@ -6,6 +6,8 @@ require("awful.rules")
 require("beautiful")
 -- Notification library
 require("naughty")
+-- Shifty library
+--require("shifty")
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
@@ -37,13 +39,37 @@ layouts =
 }
 -- }}}
 
--- {{{ Tags
--- Define a tag table which hold all screen tags.
-tags = {}
-for s = 1, screen.count() do
-    -- Each screen has its own tag table.
-    tags[s] = awful.tag({ 'web', 'prog', 'misc' }, s, layouts[1])
-end
+-- {{{ Shifty configuration
+-- tag settings
+shifty.config.tags = {
+    ["www"]  = { position = 1, spawn = "firefox,skype,deadbeef", layout = awful.layout.suit.tile.bottom },
+    ["code"] = { position = 2, layout = awful.layout.suit.tile.bottom },
+    ["misc"] = { position = 3, layout = awful.layout.suit.magnifier }
+}
+
+
+clientbuttons = awful.util.table.join(
+    awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
+    awful.button({ modkey }, 1, awful.mouse.client.move),
+    awful.button({ modkey }, 3, awful.mouse.client.resize)
+)
+
+shifty.config.apps = {
+         { match = { "Navigator","Vimperator","Gran Paradiso","Firefox","Iceweasel"} , tag = "www" } ,
+         { match = { "xterm", "urxvt"} , honorsizehints = false, slave = true } ,
+         { match = { "Skype","vlc","deadbeef" }, slave = true, float = true } ,
+         { match = { "" }, buttons = clientbuttons }
+}
+
+-- tag defaults
+shifty.config.defaults = {
+  exclusive = true,
+  layout = awful.layout.suit.magnifier,
+  ncol = 1,
+  mwfact = 0.50
+}
+
+--shifty.init()
 -- }}}
 
 -- {{{ Menu
