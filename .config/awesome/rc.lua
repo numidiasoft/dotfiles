@@ -42,7 +42,7 @@ layouts =
 -- {{{ Shifty configuration
 -- tag settings
 shifty.config.tags = {
-    ["1:www"]  = { init = true, position = 1, spawn = "", layout = awful.layout.suit.tile.bottom },
+    ["1:www"]  = { init = true, position = 1, spawn = "firefox", layout = awful.layout.suit.tile.bottom },
     ["2:code"] = { position = 2, layout = awful.layout.suit.tile.bottom },
     ["3:misc"] = { position = 3, layout = awful.layout.suit.max }
 }
@@ -51,7 +51,7 @@ shifty.config.tags = {
 shifty.config.apps = {
     -- general
     { match = { "Skype" }, float = true },
-    { match = { "Deadbeef" }, float = true, nopopup = true },
+    { match = { "Deadbeef" }, float = true },
     -- web
     { match = { "Firefox" }, tag = "1:www" },
     -- programming
@@ -188,7 +188,7 @@ end
 
 -- SHIFTY: initialize shifty
 -- the assignment of shifty.taglist must always be after its actually
--- initialized with awful.widget.taglist.new()
+-- initialized with awful.widget.  taglist.new()
 shifty.taglist = mytaglist
 shifty.init()
 
