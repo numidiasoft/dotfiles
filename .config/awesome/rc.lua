@@ -50,15 +50,16 @@ shifty.config.tags = {
 -- shifty: tags matching and client rules
 shifty.config.apps = {
     -- general
-    { match = { "Skype" }, float = true },
-    { match = { "Deadbeef" }, float = true },
+    { match = { "Skype", "Deadbeef" }, float = true },
     -- web
-    { match = { "Firefox" }, tag = "1:www" },
+    { match = { "Firefox", "Chromium" }, tag = "1:www" },
     -- programming
     { match = { "Intellijidea-ce", "Sublime" }, tag = "2:code" },
-    --video
+    -- video
     { match = { "MPlayer" }, geometry = {0,15,nil,nil}, float = true },
     { match = { "Vlc" }, float = true },
+    -- viewers
+    { match = { "Epdfview", "Acroread", "Djview" }, tag = "3:misc" },
 
     -- client manipulation
     { match = { "" },
