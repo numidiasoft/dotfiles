@@ -1,7 +1,1 @@
-.ssh/
-.vim/doc/
-.vim/plugin/
-.vim/tmp/
-.vim/ruby/
-.viminfo
-.DS_Store
+current_wallpaper.*

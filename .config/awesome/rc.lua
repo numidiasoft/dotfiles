@@ -1,7 +1,6 @@
 -- Standard awesome library
 require("awful")
 require("awful.autofocus")
-require("awful.rules")
 -- Theme handling library
 require("beautiful")
 -- Notification library
@@ -43,29 +42,21 @@ layouts =
 -- {{{ Shifty configuration
 -- tag settings
 shifty.config.tags = {
-    ["1:www"]  = { init = true, position = 1, spawn = "firefox", layout = awful.layout.suit.tile.bottom },
+    ["1:www"]  = { init = true, position = 1, spawn = "", layout = awful.layout.suit.tile.bottom },
     ["2:code"] = { position = 2, layout = awful.layout.suit.tile.bottom },
     ["3:misc"] = { position = 3, layout = awful.layout.suit.max }
 }
 
-
-clientbuttons = awful.util.table.join(
-    honorsizehints = false;
-    awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
-    awful.button({ modkey }, 1, awful.mouse.client.move),
-    awful.button({ modkey }, 3, awful.mouse.client.resize)
-)
 -- shifty: tags matching and client rules
 shifty.config.apps = {
     -- general
     { match = { "Skype" }, float = true },
-    { match = { "Deadbeef" }, float = true },
+    { match = { "Deadbeef" }, float = true, nopopup = true },
     -- web
     { match = { "Firefox" }, tag = "1:www" },
     -- programming
-    -- <BTD>
+    { match = { "Intellijidea-ce", "Sublime" }, tag = "2:code" },
     --video
-    { match = { "MPlayer", "Vlc" }, tag = "3:misc" },
     { match = { "MPlayer" }, geometry = {0,15,nil,nil}, float = true },
     { match = { "Vlc" }, float = true },
 
@@ -84,7 +75,6 @@ shifty.config.defaults = {
     layout = awful.layout.suit.max,
 }
 shifty.config.layouts = layouts
-shifty.init()
 -- }}}
 
 -- {{{ Menu
@@ -196,6 +186,12 @@ for s = 1, screen.count() do
 end
 -- }}}
 
+-- SHIFTY: initialize shifty
+-- the assignment of shifty.taglist must always be after its actually
+-- initialized with awful.widget.taglist.new()
+shifty.taglist = mytaglist
+shifty.init()
+
 -- {{{ Mouse bindings
 root.buttons(awful.util.table.join(
     awful.button({ }, 3, function () mymainmenu:toggle() end),
@@ -209,6 +205,20 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
+
+    -- Shifty: keybindings specific to shifty
+    awful.key({modkey, "Shift"}, "d", shifty.del), -- delete a tag
+    awful.key({modkey, "Shift"}, "n", shifty.send_prev), -- client to prev tag
+    awful.key({modkey}, "n", shifty.send_next), -- client to next tag
+    awful.key({modkey, "Control"}, "n", function()
+        shifty.tagtoscr(awful.util.cycle(screen.count(), mouse.screen + 1))
+    end), -- move client to next tag
+    awful.key({modkey}, "a", shifty.add), -- creat a new tag
+    awful.key({modkey,}, "r", shifty.rename), -- rename a tag
+    awful.key({modkey, "Shift"}, "a", -- nopopup new tag
+    function()
+        shifty.add({nopopup = true})
+    end),
 
     awful.key({ modkey,           }, "j",
         function ()
@@ -290,43 +300,29 @@ clientkeys = awful.util.table.join(
 )
 
 -- Compute the maximum number of digit we need, limited to 9
-keynumber = 0
-for s = 1, screen.count() do
-   keynumber = math.min(9, math.max(#tags[s], keynumber));
-end
-
--- Bind all key numbers to tags.
--- Be careful: we use keycodes to make it works on any keyboard layout.
--- This should map on the top row of your keyboard, usually 1 to 9.
-for i = 1, keynumber do
+for i = 1, (shifty.config.maxtags or 9) do
     globalkeys = awful.util.table.join(globalkeys,
-        awful.key({ modkey }, "#" .. i + 9,
-                  function ()
-                        local screen = mouse.screen
-                        if tags[screen][i] then
-                            awful.tag.viewonly(tags[screen][i])
-                        end
-                  end),
-        awful.key({ modkey, "Control" }, "#" .. i + 9,
-                  function ()
-                      local screen = mouse.screen
-                      if tags[screen][i] then
-                          awful.tag.viewtoggle(tags[screen][i])
-                      end
-                  end),
-        awful.key({ modkey, "Shift" }, "#" .. i + 9,
-                  function ()
-                      if client.focus and tags[client.focus.screen][i] then
-                          awful.client.movetotag(tags[client.focus.screen][i])
-                      end
-                  end),
-        awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
-                  function ()
-                      if client.focus and tags[client.focus.screen][i] then
-                          awful.client.toggletag(tags[client.focus.screen][i])
-                      end
-                  end))
-end
+        awful.key({modkey}, i, function()
+            local t = awful.tag.viewonly(shifty.getpos(i))
+            end),
+        awful.key({modkey, "Control"}, i, function()
+            local t = shifty.getpos(i)
+            t.selected = not t.selected
+            end),
+        awful.key({modkey, "Control", "Shift"}, i, function()
+            if client.focus then
+                awful.client.toggletag(shifty.getpos(i))
+            end
+            end),
+        -- move clients to other tags
+        awful.key({modkey, "Shift"}, i, function()
+            if client.focus then
+                t = shifty.getpos(i)
+                awful.client.movetotag(t)
+                awful.tag.viewonly(t)
+            end
+        end))
+    end
 
 clientbuttons = awful.util.table.join(
     awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
@@ -337,26 +333,11 @@ clientbuttons = awful.util.table.join(
 root.keys(globalkeys)
 -- }}}
 
--- {{{ Rules
-awful.rules.rules = {
-    -- All clients will match this rule.
-    { rule = { },
-      properties = { border_width = beautiful.border_width,
-                     border_color = beautiful.border_normal,
-                     focus = true,
-                     keys = clientkeys,
-                     buttons = clientbuttons } },
-    { rule = { class = "MPlayer" },
-      properties = { floating = true } },
-    { rule = { class = "pinentry" },
-      properties = { floating = true } },
-    { rule = { class = "gimp" },
-      properties = { floating = true } },
-    -- Set Firefox to always map on tags number 2 of screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { tag = tags[1][2] } },
-}
--- }}}
+-- SHIFTY: assign client keys to shifty for use in
+-- match() function(manage hook)
+shifty.config.globalkeys = globalkeys
+shifty.config.clientkeys = clientkeys
+shifty.config.modkey = modkey
 
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
