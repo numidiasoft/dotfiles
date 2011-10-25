@@ -60,6 +60,8 @@ shifty.config.apps = {
     { match = { "Vlc" }, float = true },
     -- viewers
     { match = { "Epdfview", "Acroread", "Djview" }, tag = "3:misc" },
+    -- graphics
+    { match = { "Gimp" }, tag = "3:misc", float = true},
 
     -- client manipulation
     { match = { "" },
