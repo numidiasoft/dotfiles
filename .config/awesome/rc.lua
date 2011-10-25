@@ -7,7 +7,7 @@ require("beautiful")
 -- Notification library
 require("naughty")
 -- Shifty library
---require("shifty")
+require("shifty")
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
@@ -33,53 +33,68 @@ commands.set_ru = "setxkbmap -layout ru"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
 {
-    awful.layout.suit.magnifier,
+    awful.layout.suit.max,
     awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile
+    awful.layout.suit.tile,
+    awful.layout.suit.magnifier
 }
 -- }}}
 
 -- {{{ Shifty configuration
 -- tag settings
 shifty.config.tags = {
-    ["www"]  = { position = 1, spawn = "firefox,skype,deadbeef", layout = awful.layout.suit.tile.bottom },
-    ["code"] = { position = 2, layout = awful.layout.suit.tile.bottom },
-    ["misc"] = { position = 3, layout = awful.layout.suit.magnifier }
+    ["1:www"]  = { init = true, position = 1, spawn = "firefox", layout = awful.layout.suit.tile.bottom },
+    ["2:code"] = { position = 2, layout = awful.layout.suit.tile.bottom },
+    ["3:misc"] = { position = 3, layout = awful.layout.suit.max }
 }
 
 
 clientbuttons = awful.util.table.join(
+    honorsizehints = false;
     awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
     awful.button({ modkey }, 1, awful.mouse.client.move),
     awful.button({ modkey }, 3, awful.mouse.client.resize)
 )
-
+-- shifty: tags matching and client rules
 shifty.config.apps = {
-         { match = { "Navigator","Vimperator","Gran Paradiso","Firefox","Iceweasel"} , tag = "www" } ,
-         { match = { "xterm", "urxvt"} , honorsizehints = false, slave = true } ,
-         { match = { "Skype","vlc","deadbeef" }, slave = true, float = true } ,
-         { match = { "" }, buttons = clientbuttons }
+    -- general
+    { match = { "Skype" }, float = true },
+    { match = { "Deadbeef" }, float = true },
+    -- web
+    { match = { "Firefox" }, tag = "1:www" },
+    -- programming
+    -- <BTD>
+    --video
+    { match = { "MPlayer", "Vlc" }, tag = "3:misc" },
+    { match = { "MPlayer" }, geometry = {0,15,nil,nil}, float = true },
+    { match = { "Vlc" }, float = true },
+
+    -- client manipulation
+    { match = { "" },
+        honorsizehints = false,
+        buttons = awful.util.table.join (
+            awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
+            awful.button({ modkey }, 1, awful.mouse.client.move),
+            awful.button({ modkey }, 3, awful.mouse.client.resize))
+    },
 }
 
--- tag defaults
+-- shifty: defaults
 shifty.config.defaults = {
-  exclusive = true,
-  layout = awful.layout.suit.magnifier,
-  ncol = 1,
-  mwfact = 0.50
+    layout = awful.layout.suit.max,
 }
-
---shifty.init()
+shifty.config.layouts = layouts
+shifty.init()
 -- }}}
 
 -- {{{ Menu
 -- Create a laucher widget and a main menu
 myawesomemenu = {
-   { "lock", "xscreensaver-command -activate" },
-   { "manual", terminal .. " -e man awesome" },
-   { "edit config", editor_cmd .. " " .. awful.util.getdir("config") .. "/rc.lua" },
-   { "restart", awesome.restart },
-   { "quit", awesome.quit }
+    { "lock", "xscreensaver-command -activate" },
+    { "manual", terminal .. " -e man awesome" },
+    { "edit config", editor_cmd .. " " .. awful.util.getdir("config") .. "/rc.lua" },
+    { "restart", awesome.restart },
+    { "quit", awesome.quit }
 }
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
