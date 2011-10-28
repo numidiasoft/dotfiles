@@ -61,7 +61,9 @@ shifty.config.apps = {
     -- viewers
     { match = { "Epdfview", "Acroread", "Djview" }, tag = "3:misc" },
     -- graphics
-    { match = { "Gimp" }, tag = "3:misc", float = true},
+    { match = { "Gimp" }, tag = "3:misc", float = true },
+    -- others
+    { match = { "CGoban3" }, tag = "3:misc", float = true },
 
     -- client manipulation
     { match = { "" },
