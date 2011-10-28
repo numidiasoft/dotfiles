@@ -8,7 +8,7 @@
 
 -- {{{ Main
 theme = {}
-theme.wallpaper_cmd = { "awsetbg /home/dulanov/.config/awesome/themes/current_wallpaper.jpg" }
+theme.wallpaper_cmd = { "awsetbg /home/dulanov/.config/awesome/themes/current_wallpaper.png" }
 -- }}}
 
 -- {{{ Styles
