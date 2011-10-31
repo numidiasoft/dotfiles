@@ -268,7 +268,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
     -- Custom keyboard switcher
-    awful.key({ "Control", "Shift" }, "Retunr", function () awful.util.spawn(commands.set_en) end),
+    awful.key({ "Control", "Shift" }, "Return", function () awful.util.spawn(commands.set_en) end),
     awful.key({ "Control", "Shift" }, "\\", function () awful.util.spawn(commands.set_ru) end),
 
     -- Prompt
