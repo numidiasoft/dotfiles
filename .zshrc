@@ -19,11 +19,13 @@ bindkey -v
 export PAGER="less"
 export PERLLIB=$PATH
 
-export GOROOT=$HOME/projects/sandbox/go
+export GOROOT=$HOME/projects/golang-src
 path=($GOROOT/bin $path)
 
 export JAVA_OPTS='-server -Dfile.encoding=UTF-8 -Xmx256m -XX:MaxPermSize=128m'
 export MAVEN_OPTS='-Xmx256M -XX:MaxPermSize=128M -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=4000'
+
+export LD_LIBRARY_PATH=/usr/local/lib
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
