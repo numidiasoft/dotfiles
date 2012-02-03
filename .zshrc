@@ -19,6 +19,8 @@ bindkey -v
 export PAGER="less"
 export PERLLIB=$PATH
 
+export ERL_LIBS=$HOME/.kerl/Site
+
 export GOROOT=$HOME/projects/golang-src
 path=($GOROOT/bin $path)
 

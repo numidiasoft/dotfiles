@@ -1,0 +1,7 @@
+OPTIONS=showexp,showscore,time,color,!autopickup,!cmdassist
+OPTIONS=autodig,fruit:kiwi,boulder:0,extmenu,hilite_pet
+OPTIONS=IBMgraphics
+
+OPTIONS=msg_window:reversed
+
+OPTIONS=number_pad:0
