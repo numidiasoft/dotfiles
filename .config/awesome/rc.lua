@@ -42,9 +42,14 @@ layouts =
 -- {{{ Shifty configuration
 -- tag settings
 shifty.config.tags = {
-    ["1:www"]  = { init = true, position = 1, spawn = "firefox", layout = awful.layout.suit.tile.bottom },
-    ["2:code"] = { position = 2, layout = awful.layout.suit.tile.bottom },
-    ["3:misc"] = { position = 3, layout = awful.layout.suit.max }
+    ["1:α"]  = { init = true, position = 1, spawn = "firefox", layout = awful.layout.suit.tile.bottom },
+    ["2:β"] = { position = 2, layout = awful.layout.suit.tile.bottom },
+    ["3:δ"] = { position = 3, layout = awful.layout.suit.max },
+    ["4:ε"] = { position = 4, layout = awful.layout.suit.max },
+    ["5:ζ"] = { position = 5, layout = awful.layout.suit.max },
+    ["6:η"] = { position = 6, layout = awful.layout.suit.max },
+    ["7:θ"] = { position = 7, layout = awful.layout.suit.max },
+    ["8:ι"] = { position = 8, layout = awful.layout.suit.max }
 }
 
 -- shifty: tags matching and client rules
@@ -52,14 +57,14 @@ shifty.config.apps = {
     -- general
     { match = { "Skype", "Deadbeef" }, float = true },
     -- web
-    { match = { "Firefox", "Chromium" }, tag = "1:www" },
+    { match = { "Firefox", "Chromium" }, tag = "1:α" },
     -- programming
-    { match = { "Intellijidea-ce", "Sublime" }, tag = "2:code" },
+    { match = { "Intellijidea-ce", "gvim", "gview" }, tag = "2:β" },
     -- video
     { match = { "MPlayer" }, geometry = {0,15,nil,nil}, float = true },
     { match = { "Vlc" }, float = true },
     -- viewers
-    { match = { "Epdfview", "Acroread", "Djview" }, tag = "3:misc" },
+    { match = { "Epdfview", "Acroread", "Djview" }, tag = "3:δ" },
     -- graphics
     { match = { "Gimp" }, tag = "3:misc", float = true },
     -- others
