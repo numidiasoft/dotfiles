@@ -1,6 +1,6 @@
 yeahconsole*term:urxvt
 yeahconsole*aniDelay:0
-yeahconsole*consoleHeight:31
+yeahconsole*consoleHeight:23
 yeahconsole*keyFull:None+F11
 yeahconsole*toggleKey:None+F12
 yeahconsole*keySmaller:ControlAlt+h
