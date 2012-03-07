@@ -1,13 +1,3 @@
-Xcursor.theme: Vanilla-DMZ
-Xcursor.size: 16
-
-Xft.antialias: 1
-Xft.autohint: 0
-Xft.hinting : 1
-Xft.hintstyle: hintslight
-Xft.lcdfilter: lcddefault
-Xft.rgba: rgb
-
 yeahconsole*term:urxvt
 yeahconsole*aniDelay:0
 yeahconsole*consoleHeight:23
@@ -23,10 +13,8 @@ URxvt.background: black
 URxvt.foreground: white
 URxvt.cursorColor: green
 URxvt.underlineColor: yellow
-URxvt.font: -lokaltog-fixed-medium-r-*-*-12-*-*-*-*-*-*-*
-URxvt.boldFont: -lokaltog-fixed-bold-r-*-*-12-*-*-*-*-*-*-*
-URxvt.italicFont: -lokaltog-fixed-medium-r-*-*-12-*-*-*-*-*-*-*
-URxvt.boldItalicFont: -lokaltog-fixed-bold-r-*-*-12-*-*-*-*-*-*-*
+URxvt.font: xft:Terminus:pixelsize=12:antialias=false
+URxvt.boldFont: xft:Terminus:bold:pixelsize=12:antialias=false
 URxvt.saveLines: 4096
 URxvt.scrollBar: false
 URxvt.scrollBar_right: false

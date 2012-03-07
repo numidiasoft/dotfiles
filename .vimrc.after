@@ -20,17 +20,11 @@ au FileType erlang set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 au BufNewFile,BufRead rebar.config set filetype=erlang
 au FocusLost * :wa
 
-let g:Powerline_symbols = 'fancy'
-
 if version >= 703
   set relativenumber
   set colorcolumn=80,120
   set undofile
   set undodir=/.vim/_tmp
-endif
-
-if &t_Co > 2 || has("gui_running")
-   syntax on
 endif
 
 if &t_Co >= 256 || has("gui_running")
@@ -68,6 +62,8 @@ imap <C-V> <esc>"+gPi
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+let g:Powerline_symbols = 'fancy'
 
 let vimclojure#FuzzyIndent=1
 let vimclojure#HighlightBuiltins=1
