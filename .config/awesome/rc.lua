@@ -55,7 +55,7 @@ shifty.config.tags = {
 -- shifty: tags matching and client rules
 shifty.config.apps = {
     -- general
-    { match = { "Skype", "Deadbeef" }, float = true },
+    { match = { "Deadbeef" }, float = true },
     -- web
     { match = { "Firefox", "Chromium" }, tag = "1:α" },
     -- programming
@@ -64,7 +64,7 @@ shifty.config.apps = {
     { match = { "MPlayer" }, geometry = {0,15,nil,nil}, float = true },
     { match = { "Vlc" }, float = true },
     -- viewers
-    { match = { "Epdfview", "Acroread", "Djview" }, tag = "3:δ" },
+    { match = { "Acroread", "Djview" }, tag = "3:δ" },
     -- graphics
     { match = { "Gimp" }, tag = "3:misc", float = true },
     -- others
@@ -107,6 +107,8 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 -- }}}
 
 -- {{{ Wibox
+batterywidget = widget({ type = "textbox", name = "batterywidget", align = "right" })
+
 -- Create a textclock widget
 mytextclock = awful.widget.textclock({ align = "right" })
 
@@ -188,6 +190,7 @@ for s = 1, screen.count() do
             layout = awful.widget.layout.horizontal.leftright
         },
         mylayoutbox[s],
+        batterywidget,
         mytextclock,
         s == 1 and mysystray or nil,
         mytasklist[s],
@@ -379,3 +382,42 @@ end)
 client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+batterytimer = timer({ timeout = 30 })
+batterytimer:add_signal("timeout", function() batteryInfo("BAT0") end)
+batterytimer:start()
+
+function batteryInfo(adapter)
+   spacer = " "
+   local fcur = io.open("/sys/class/power_supply/"..adapter.."/charge_now")    
+   local fcap = io.open("/sys/class/power_supply/"..adapter.."/charge_full")
+   local fsta = io.open("/sys/class/power_supply/"..adapter.."/status")
+   local cur = fcur:read()
+   local cap = fcap:read()
+   local sta = fsta:read()
+   local battery = math.floor(cur * 100 / cap)
+   if sta:match("Discharging") then
+       if tonumber(battery) > 25 and tonumber(battery) < 75 then
+           battery = battery
+       elseif tonumber(battery) < 25 then
+           if tonumber(battery) < 10 then
+               naughty.notify({ title      = "Battery Warning"
+                              , text       = "Battery low!"..spacer..battery.."%"..spacer.."left!"
+                              , timeout    = 7
+                              , position   = "top_right"
+                              , fg         = beautiful.fg_focus
+                              , bg         = beautiful.bg_focus
+                              })
+           end
+           battery = battery
+       else
+           battery = battery
+       end
+       batterywidget.text = spacer.."("..battery.."%)"..spacer
+   else
+       batterywidget.text = ""
+   end
+   fcur:close()
+   fcap:close()
+   fsta:close()
+end
