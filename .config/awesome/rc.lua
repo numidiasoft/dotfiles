@@ -55,6 +55,7 @@ shifty.config.tags = {
 -- shifty: tags matching and client rules
 shifty.config.apps = {
     -- general
+    { match = { "Skype" }, slave = true},
     { match = { "Deadbeef" }, float = true },
     -- web
     { match = { "Firefox", "Chromium" }, tag = "1:α" },

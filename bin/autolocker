@@ -1,4 +1,4 @@
 #!/bin/sh
 while :; do
-    sinac -w $1 && slimlock
+    sinac -w $1 && setxkbmap -layout us && slimlock
 done

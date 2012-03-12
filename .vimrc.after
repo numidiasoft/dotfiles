@@ -65,7 +65,7 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 let g:Powerline_symbols = 'fancy'
 
-let vimclojure#FuzzyIndent=1
+et vimclojure#FuzzyIndent=1
 let vimclojure#HighlightBuiltins=1
 let vimclojure#HighlightContrib=1
 let vimclojure#DynamicHighlighting=1
