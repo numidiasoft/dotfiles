@@ -29,11 +29,10 @@ endif
 
 if has("gui_running")
   set background=light
+  colorscheme solarized
 else
-  set background=dark
+  colorscheme molokai
 endif
-
-colorscheme solarized
 
 if has("gui_running")
     set guioptions-=r
@@ -45,7 +44,7 @@ if has("gui_running")
     set lines=31
     set columns=96
     if has("gui_gtk2")
-        set guifont=DroidSansMono\ 10
+        set guifont=DroidSansMono\ for\ Powerline\ 10
     elseif has("X11")
         set guifont=-*-courier-medium-r-normal-*-*-180-*-*-m-*-*
     endif
@@ -66,5 +65,3 @@ imap <C-V> <esc>"+gPi
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
-
-let g:Powerline_symbols = 'fancy'
