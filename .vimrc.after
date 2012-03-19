@@ -27,9 +27,13 @@ if version >= 703
   set undodir=/.vim/_tmp
 endif
 
-if &t_Co >= 256 || has("gui_running")
-   colorscheme getafe
+if has("gui_running")
+  set background=light
+else
+  set background=dark
 endif
+
+colorscheme solarized
 
 if has("gui_running")
     set guioptions-=r
@@ -41,7 +45,7 @@ if has("gui_running")
     set lines=31
     set columns=96
     if has("gui_gtk2")
-        set guifont=DroidSansMono\ 9
+        set guifont=DroidSansMono\ 10
     elseif has("X11")
         set guifont=-*-courier-medium-r-normal-*-*-180-*-*-m-*-*
     endif
@@ -64,10 +68,3 @@ nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 let g:Powerline_symbols = 'fancy'
-
-et vimclojure#FuzzyIndent=1
-let vimclojure#HighlightBuiltins=1
-let vimclojure#HighlightContrib=1
-let vimclojure#DynamicHighlighting=1
-let vimclojure#ParenRainbow=1
-let vimclojure#WantNailgun=0
