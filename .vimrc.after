@@ -1,17 +1,3 @@
-set cindent
-set cinkeys=!^F
-set cinoptions=(0t0c1
-
-set novisualbell
-set noerrorbells
-set vb t_vb=
-
-set ruler
-set showcmd
-set wildmenu
-set lazyredraw
-set cursorline
-
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 autocmd filetype html,xml set listchars-=tab:>.
