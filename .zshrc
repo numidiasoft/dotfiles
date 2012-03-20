@@ -58,6 +58,11 @@ alias grep="grep --color"
 alias df="df -h"
 alias du="du -h"
 
+bindkey "\e[1~" beginning-of-line # Home
+bindkey "\e[4~" end-of-line # End
+bindkey '\e[A' history-beginning-search-backward # Up
+bindkey '\e[B' history-beginning-search-forwardA # Down
+
 [ -r ~/.zshrc_local ] && . ~/.zshrc_local
 
 eval `keychain --eval --agents ssh id_rsa`

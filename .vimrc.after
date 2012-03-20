@@ -27,8 +27,7 @@ if has("gui_running")
     set guioptions-=L
     set guioptions+=c
     set cursorline
-    set lines=31
-    set columns=96
+    set columns=120
     if has("gui_gtk2")
         set guifont=DroidSansMono\ for\ Powerline\ 10
     elseif has("X11")
