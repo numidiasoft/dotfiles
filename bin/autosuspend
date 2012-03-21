@@ -1,4 +1,4 @@
 #!/bin/sh
 while :; do
-    sinac -w $1 && sp-suspend
+    sinac -w $1 && sudo sp-suspend
 done
