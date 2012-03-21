@@ -7,7 +7,8 @@ xmodmap -e 'keycode 0x42 = Control_L'
 synclient TouchpadOff=1
 
 wicd-client --tray&
-bin/autolocker 480&
+bin/autolocker 420& #7 min
+bin/autosuspend 1800& #30 min
 unclutter&
 yeahconsole&
 dropboxd&
