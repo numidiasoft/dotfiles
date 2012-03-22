@@ -8,7 +8,7 @@ synclient TouchpadOff=1
 
 wicd-client --tray&
 bin/autolocker 420& #7 min
-bin/autosuspend 1800& #30 min
+bin/autosuspend 900& #15 min
 unclutter&
 yeahconsole&
 dropboxd&
