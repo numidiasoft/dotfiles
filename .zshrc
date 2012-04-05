@@ -73,3 +73,5 @@ if ! tmux has-session -t hub; then
 elif [ -z $X ]; then
     tmux attach-session -d -t hub
 fi
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
