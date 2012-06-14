@@ -7,12 +7,11 @@ xmodmap -e 'keycode 0x42 = Control_L'
 synclient TouchpadOff=1
 
 wicd-client --tray&
-bin/autolocker 420& #7 min
-bin/autosuspend 900& #15 min
+bin/autolocker 840& #15 min
+bin/autosuspend 2700& #45 min
 unclutter&
 yeahconsole&
 dropboxd&
-skype&
 
 wmname LG3D
 exec awesome
