@@ -422,14 +422,17 @@ batterytimer:start()
 
 function batteryInfo(adapter)
    spacer = " "
-   local fcur = io.open("/sys/class/power_supply/"..adapter.."/energy_now")
-   local fcap = io.open("/sys/class/power_supply/"..adapter.."/energy_full")
    local fsta = io.open("/sys/class/power_supply/"..adapter.."/status")
-   local cur = fcur:read()
-   local cap = fcap:read()
    local sta = fsta:read()
-   local battery = math.floor(cur * 100 / cap)
+   fsta:close()
    if sta:match("Discharging") then
+       local fcur = io.open("/sys/class/power_supply/"..adapter.."/energy_now")
+       local fcap = io.open("/sys/class/power_supply/"..adapter.."/energy_full")
+       local cap = fcap:read()
+       local cur = fcur:read()
+       fcur:close()
+       fcap:close()
+       local battery = math.floor(cur * 100 / cap)
        if tonumber(battery) > 25 and tonumber(battery) < 75 then
            battery = battery
        elseif tonumber(battery) < 25 then
@@ -450,7 +453,4 @@ function batteryInfo(adapter)
    else
        batterywidget:set_text("")
    end
-   fcur:close()
-   fcap:close()
-   fsta:close()
 end
