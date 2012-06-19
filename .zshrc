@@ -21,7 +21,7 @@ export PERLLIB=$PATH
 
 export ERL_LIBS=$HOME/.kerl/Site
 
-export GOROOT=$HOME/projects/golang-src
+export GOROOT=/opt/gae
 path=($GOROOT/bin $path)
 
 export JAVA_OPTS='-server -Dfile.encoding=UTF-8 -Xmx256m -XX:MaxPermSize=128m'
