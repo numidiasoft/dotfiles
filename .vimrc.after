@@ -2,7 +2,7 @@ set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 autocmd filetype html,xml set listchars-=tab:>.
 
-au BufRead,BufNewFile *.go set filetype=go
+au BufRead,BufNewFile *.go set filetype=golang
 
 au FileType erlang set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 au BufNewFile,BufRead rebar.config set filetype=erlang
