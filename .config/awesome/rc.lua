@@ -428,6 +428,10 @@ function batteryInfo(adapter)
    if sta:match("Discharging") then
        local fcur = io.open("/sys/class/power_supply/"..adapter.."/charge_now")
        local fcap = io.open("/sys/class/power_supply/"..adapter.."/charge_full")
+       if not fcur then
+         fcur = io.open("/sys/class/power_supply/"..adapter.."/energy_now")
+         fcap = io.open("/sys/class/power_supply/"..adapter.."/energy_full")
+       end
        local cap = fcap:read()
        local cur = fcur:read()
        fcur:close()
