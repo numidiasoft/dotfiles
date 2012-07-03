@@ -8,6 +8,8 @@ au FileType erlang set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 au BufNewFile,BufRead rebar.config set filetype=erlang
 au FocusLost * :wa
 
+set textwidth=140
+
 if version >= 703
   set relativenumber
   set colorcolumn=80,120
