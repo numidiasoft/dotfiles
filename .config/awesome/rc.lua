@@ -86,16 +86,12 @@ shifty.config.apps = {
     { match = { "Skype", "Chart" }, slave = true, tag = "1:α" },
     { match = { "Deadbeef" }, float = true },
     -- web
-    { match = { "Firefox", "Chromium" }, tag = "1:α" },
+    { match = { "Firefox", "Chromium" }, fullscreen = true, tag = "1:α" },
     -- programming
-    { match = { "Intellijidea-ce", "gvim", "gview" }, tag = "2:β" },
+    { match = { "gvim", "gview" }, fullscreen = true, tag = "2:β" },
     -- video
     { match = { "MPlayer" }, geometry = {0,15,nil,nil}, float = true },
     { match = { "Vlc" }, float = true },
-    -- viewers
-    { match = { "Acroread", "Djview" }, tag = "3:δ" },
-    -- graphics
-    { match = { "Gimp" }, tag = "3:misc", float = true },
     -- others
     { match = { "CGoban3" }, tag = "3:misc", float = true },
 
