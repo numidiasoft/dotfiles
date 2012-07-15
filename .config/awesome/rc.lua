@@ -1,15 +1,16 @@
 -- Standard awesome library
-require("awful")
+local awful = require("awful")
+awful.rules = require("awful.rules")
 require("awful.autofocus")
 -- Widget and layout library
-require("wibox")
+local wibox = require("wibox")
 -- Theme handling library
-require("beautiful")
+local beautiful = require("beautiful")
 -- Notification library
-require("naughty")
-require("menubar")
+local naughty = require("naughty")
+local menubar = require("menubar")
 -- Shifty library
-require("shifty")
+local shifty = require("shifty")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
