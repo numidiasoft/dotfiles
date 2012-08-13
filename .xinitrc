@@ -6,7 +6,7 @@ xmodmap -e 'keycode 0x42 = Control_L'
 
 synclient TouchpadOff=1
 
-firefox-sync&
+firefox-sync
 
 wicd-client --tray&
 bin/autolocker 840& #15 min
