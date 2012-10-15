@@ -1,1 +1,0 @@
-/home/dulanov/.vim/janus/vim/gvimrc
